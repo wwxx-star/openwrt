@@ -34,6 +34,7 @@ jobs:
         working-directory: ${{ env.WORKPATH }}/openwrt
         run: |
           launchctl limit maxfiles
+          ulimit -n 524288
           brew install \
             autoconf \
             automake \
