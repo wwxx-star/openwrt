@@ -72,6 +72,7 @@ jobs:
             echo "/usr/local/opt/make/libexec/gnubin" >> "$GITHUB_PATH"
             echo "/usr/local/opt/make/libexec/gnubin" >> "$GITHUB_PATH"
             echo "/usr/sbin" >> "$GITHUB_PATH"
+            launchctl limit maxfiles
 
       - name: Make prereq
         working-directory: ${{ env.WORKPATH }}/openwrt
