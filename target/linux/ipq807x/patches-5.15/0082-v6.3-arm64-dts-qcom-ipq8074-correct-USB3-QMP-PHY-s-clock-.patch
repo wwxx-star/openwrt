@@ -1,6 +1,6 @@
-From 1bfcec16a591622b4993c043e6cc4d07f3690767 Mon Sep 17 00:00:00 2001
+From 877cff3568c0f54511d77918ae16b2d6e9a0dfce Mon Sep 17 00:00:00 2001
 From: Robert Marko <robimarko@gmail.com>
-Date: Sun, 8 Jan 2023 13:39:55 +0100
+Date: Sun, 8 Jan 2023 14:04:40 +0100
 Subject: [PATCH] arm64: dts: qcom: ipq8074: correct USB3 QMP PHY-s clock
  output names
 
@@ -26,13 +26,16 @@ After:
 
 Fixes: 5e09bc51d07b ("arm64: dts: ipq8074: enable USB support")
 Signed-off-by: Robert Marko <robimarko@gmail.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Signed-off-by: Bjorn Andersson <andersson@kernel.org>
+Link: https://lore.kernel.org/r/20230108130440.670181-2-robimarko@gmail.com
 ---
  arch/arm64/boot/dts/qcom/ipq8074.dtsi | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 --- a/arch/arm64/boot/dts/qcom/ipq8074.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq8074.dtsi
-@@ -263,7 +263,7 @@
+@@ -137,7 +137,7 @@
  				#clock-cells = <0>;
  				clocks = <&gcc GCC_USB1_PIPE_CLK>;
  				clock-names = "pipe0";
@@ -41,7 +44,7 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
  			};
  		};
  
-@@ -306,7 +306,7 @@
+@@ -180,7 +180,7 @@
  				#clock-cells = <0>;
  				clocks = <&gcc GCC_USB0_PIPE_CLK>;
  				clock-names = "pipe0";
