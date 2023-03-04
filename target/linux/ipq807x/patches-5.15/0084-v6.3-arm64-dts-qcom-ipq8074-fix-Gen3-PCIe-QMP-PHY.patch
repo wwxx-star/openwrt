@@ -1,6 +1,6 @@
-From 6f49bc0ee169c90b5c26a1e3d27a4728142f0ddb Mon Sep 17 00:00:00 2001
+From 3fc55e73ec7e4b7a94d2c4365bf7e88df554f529 Mon Sep 17 00:00:00 2001
 From: Robert Marko <robimarko@gmail.com>
-Date: Wed, 16 Nov 2022 22:48:34 +0100
+Date: Fri, 13 Jan 2023 17:44:42 +0100
 Subject: [PATCH] arm64: dts: qcom: ipq8074: fix Gen3 PCIe QMP PHY
 
 IPQ8074 comes in 2 silicon versions:
@@ -18,13 +18,15 @@ and size, add the missing misc PCS register space.
 
 Fixes: 33057e1672fe ("ARM: dts: ipq8074: Add pcie nodes")
 Signed-off-by: Robert Marko <robimarko@gmail.com>
+Signed-off-by: Bjorn Andersson <andersson@kernel.org>
+Link: https://lore.kernel.org/r/20230113164449.906002-2-robimarko@gmail.com
 ---
  arch/arm64/boot/dts/qcom/ipq8074.dtsi | 15 ++++++++-------
  1 file changed, 8 insertions(+), 7 deletions(-)
 
 --- a/arch/arm64/boot/dts/qcom/ipq8074.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq8074.dtsi
-@@ -232,9 +232,9 @@
+@@ -197,9 +197,9 @@
  			status = "disabled";
  		};
  
@@ -37,7 +39,7 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
  			#address-cells = <1>;
  			#size-cells = <1>;
  			ranges;
-@@ -248,10 +248,11 @@
+@@ -213,10 +213,11 @@
  				      "common";
  			status = "disabled";
  

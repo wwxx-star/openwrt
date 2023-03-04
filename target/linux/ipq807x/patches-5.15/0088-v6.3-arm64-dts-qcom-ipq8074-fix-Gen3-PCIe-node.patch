@@ -1,6 +1,6 @@
-From 625c90a8266e432ea15e109123ca941062b63f76 Mon Sep 17 00:00:00 2001
+From de2b96de4fce4663cee6f22620ddf856da38d2e3 Mon Sep 17 00:00:00 2001
 From: Robert Marko <robimarko@gmail.com>
-Date: Wed, 16 Nov 2022 22:48:40 +0100
+Date: Fri, 13 Jan 2023 17:44:48 +0100
 Subject: [PATCH] arm64: dts: qcom: ipq8074: fix Gen3 PCIe node
 
 IPQ8074 comes in 2 silicon versions:
@@ -16,13 +16,15 @@ clocks and resets.
 
 Fixes: 33057e1672fe ("ARM: dts: ipq8074: Add pcie nodes")
 Signed-off-by: Robert Marko <robimarko@gmail.com>
+Signed-off-by: Bjorn Andersson <andersson@kernel.org>
+Link: https://lore.kernel.org/r/20230113164449.906002-8-robimarko@gmail.com
 ---
  arch/arm64/boot/dts/qcom/ipq8074.dtsi | 30 +++++++++++++++------------
  1 file changed, 17 insertions(+), 13 deletions(-)
 
 --- a/arch/arm64/boot/dts/qcom/ipq8074.dtsi
 +++ b/arch/arm64/boot/dts/qcom/ipq8074.dtsi
-@@ -854,16 +854,18 @@
+@@ -819,16 +819,18 @@
  		};
  
  		pcie0: pci@20000000 {
@@ -44,7 +46,7 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
  			#address-cells = <3>;
  			#size-cells = <2>;
  
-@@ -871,9 +873,9 @@
+@@ -836,9 +838,9 @@
  			phy-names = "pciephy";
  
  			ranges = <0x81000000 0 0x20200000 0x20200000
@@ -57,7 +59,7 @@ Signed-off-by: Robert Marko <robimarko@gmail.com>
  
  			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
  			interrupt-names = "msi";
-@@ -891,28 +893,30 @@
+@@ -856,28 +858,30 @@
  			clocks = <&gcc GCC_SYS_NOC_PCIE0_AXI_CLK>,
  				 <&gcc GCC_PCIE0_AXI_M_CLK>,
  				 <&gcc GCC_PCIE0_AXI_S_CLK>,
