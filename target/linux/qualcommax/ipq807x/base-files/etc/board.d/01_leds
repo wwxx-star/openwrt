@@ -10,6 +10,11 @@ arcadyan,aw1000)
 	ucidef_set_led_netdev "5g" "5G" "green:5g" "wwan0"
 	ucidef_set_led_netdev "wan" "WAN" "green:internet" "wan"
 	;;
+asus,rt-ax89x)
+	ucidef_set_led_netdev "aqr" "AQR" "white:aqr10g" "10g-copper"
+	ucidef_set_led_netdev "sfp" "SFP" "white:sfp" "10g-sfp"
+	ucidef_set_led_netdev "wan" "WAN" "white:wan" "wan"
+	;;
 edgecore,eap102)
 	ucidef_set_led_netdev "wan" "WAN" "green:wanpoe" "wan"
 	;;
