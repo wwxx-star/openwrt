@@ -99,6 +99,7 @@
 		compatible = "jedec,spi-nor";
 		reg = <0>;
 		spi-max-frequency = <10000000>;
+                tbroken-flash-reset; 
 
 		partitions {
 			compatible = "fixed-partitions";
@@ -137,7 +138,7 @@
 			partition@50000 {
 				compatible = "denx,uimage";
 				label = "firmware";
-				reg = <0x50000 0xfb0000>;
+				reg = <0xa0000 0x1fb0000>;
 			};
 		};
 	};
