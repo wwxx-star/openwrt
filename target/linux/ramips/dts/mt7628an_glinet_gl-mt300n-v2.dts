@@ -75,7 +75,7 @@
 
 &state_default {
 	gpio {
-		groups = "wdt", "gpio", "wled_an", "p0led_an", "p1led_an", "i2s";
+		groups = "wdt", "gpio", "wled_an", "p0led_an", "p1led_an", "i2s", "i2c";
 		function = "gpio";
 	};
 };
@@ -88,7 +88,8 @@
 &wmac {
 	status = "okay";
 
-	mediatek,mtd-eeprom = <&factory 0x0>;
+	nvmem-cells = <&eeprom_factory_0>;
+	nvmem-cell-names = "eeprom";
 };
 
 &spi0 {
@@ -98,6 +99,7 @@
 		compatible = "jedec,spi-nor";
 		reg = <0>;
 		spi-max-frequency = <10000000>;
+                tbroken-flash-reset; 
 
 		partitions {
 			compatible = "fixed-partitions";
@@ -117,15 +119,26 @@
 			};
 
 			factory: partition@40000 {
+				compatible = "nvmem-cells";
 				label = "factory";
 				reg = <0x40000 0x10000>;
+				#address-cells = <1>;
+				#size-cells = <1>;
 				read-only;
+
+				eeprom_factory_0: eeprom@0 {
+					reg = <0x0 0x400>;
+				};
+
+				macaddr_factory_4: macaddr@4 {
+					reg = <0x4 0x6>;
+				};
 			};
 
 			partition@50000 {
 				compatible = "denx,uimage";
 				label = "firmware";
-				reg = <0x50000 0xfb0000>;
+				reg = <0xa0000 0x1fb0000>;
 			};
 		};
 	};
@@ -133,14 +146,4 @@
 
 &uart1 {
 	status = "okay";
-};
-
-&factory {
-	compatible = "nvmem-cells";
-	#address-cells = <1>;
-	#size-cells = <1>;
-
-	macaddr_factory_4: macaddr@4 {
-		reg = <0x4 0x6>;
-	};
 };
